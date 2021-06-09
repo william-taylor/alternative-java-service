@@ -9,8 +9,10 @@ import static io.javalin.apibuilder.ApiBuilder.path;
 
 @Singleton
 public class MortgageController implements JavalinController {
+    private static final String API_PATH = "/mortgage";
+
     @Override
     public void bindRoutes(Javalin app) {
-        app.routes(() -> path("/", () -> get(ctx -> ctx.result("Hello, World"))));
+        app.routes(() -> path(API_PATH, () -> get(ctx -> ctx.result("Dummy Response"))));
     }
 }
