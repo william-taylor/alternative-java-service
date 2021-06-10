@@ -13,6 +13,8 @@ import io.swagger.v3.oas.models.info.Info;
 import java.util.Collections;
 import java.util.Set;
 
+import static io.javalin.apibuilder.ApiBuilder.path;
+
 @Singleton
 public class JavalinLauncher {
 
@@ -21,8 +23,12 @@ public class JavalinLauncher {
 
     public void listen(int port) {
         final var javalin = Javalin.create(this::getJavalinConfig);
-        controllers.forEach(controllers -> controllers.bindRoutes(javalin));
+        controllers.forEach(controllers -> setupController(javalin, controllers));
         javalin.start(port);
+    }
+
+    private void setupController(Javalin javalin, JavalinController controller) {
+        javalin.routes(() -> path(controller.getBaseUrl(), () -> controller.addRoutes(javalin)));
     }
 
     private JavalinConfig getJavalinConfig(JavalinConfig config) {
