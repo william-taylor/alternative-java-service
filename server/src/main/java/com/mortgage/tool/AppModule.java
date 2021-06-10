@@ -8,15 +8,15 @@ import com.mortgage.tool.config.ConfigResolver;
 import com.mortgage.tool.javalin.JavalinLauncher;
 import com.mortgage.tool.javalin.JavalinModule;
 import com.mortgage.tool.mortgage.MortgageModule;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 import java.util.List;
 
+@Slf4j
 public class AppModule extends AbstractModule {
-    private static final Logger LOGGER = LoggerFactory.getLogger(AppModule.class);
-
     private static final List<Module> MODULES = Arrays.asList(
         new ConfigModule(),
         new JavalinModule(),
@@ -33,7 +33,7 @@ public class AppModule extends AbstractModule {
         final var launcher = injector.getInstance(JavalinLauncher.class);
 
         final var config = resolver.resolve();
-        LOGGER.info("Resolved configuration: {}", config);
+        log.info("Resolved configuration: {}", config);
         launcher.listen(config.port());
      }
 }
