@@ -1,8 +1,8 @@
 package com.mortgage.tool.javalin;
 
 import io.javalin.Javalin;
+import io.javalin.apibuilder.EndpointGroup;
 
 public interface JavalinController {
-    String getBaseUrl();
-    void addRoutes(Javalin app);
+    EndpointGroup addRoutes(Javalin app);
 }

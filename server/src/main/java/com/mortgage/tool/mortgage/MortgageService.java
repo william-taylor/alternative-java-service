@@ -1,30 +1,28 @@
 package com.mortgage.tool.mortgage;
 
-
-import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import lombok.extern.slf4j.Slf4j;
 
-import java.util.Optional;
+import java.math.BigDecimal;
 
+@Slf4j
 @Singleton
 public class MortgageService {
 
-    @Inject
-    private MortgageRepository repository;
+    public MortgageInterest calculateInterest(Mortgage mortgage) {
+        final var totalMortgageAmount = mortgage.getAmount();
+        final var depositProvided = mortgage.getDeposit();
+        final var interestRate = mortgage.getRate();
 
-    public Optional<Mortgage> getMortgage(String id) {
-        return Optional.empty();
+        final var termInMonths = mortgage.getYears() * 12;
+        log.info("Mortgage term in months is {}", termInMonths);
+
+        final var amountLoanedByBank = totalMortgageAmount.subtract(depositProvided);
+        log.info("Bank provided {} towards the mortgage.", amountLoanedByBank);
+
+        // TODO: Finish implementation
+
+        return new MortgageInterest(BigDecimal.ZERO, BigDecimal.ZERO);
     }
 
-    public Mortgage createMortgage(Mortgage mortgage) {
-        return mortgage;
-    }
-
-    public Mortgage updateMortgage(Mortgage mortgage) {
-        return mortgage;
-    }
-
-    public void deleteMortgage(Mortgage mortgage) {
-
-    }
 }

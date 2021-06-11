@@ -2,6 +2,7 @@ package com.mortgage.tool.javalin;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import com.mortgage.tool.mortgage.MortgageController;
 import io.javalin.Javalin;
 import io.javalin.core.JavalinConfig;
 import io.javalin.plugin.openapi.OpenApiOptions;
@@ -13,22 +14,16 @@ import io.swagger.v3.oas.models.info.Info;
 import java.util.Collections;
 import java.util.Set;
 
-import static io.javalin.apibuilder.ApiBuilder.path;
-
 @Singleton
 public class JavalinLauncher {
 
     @Inject(optional = true)
-    private Set<JavalinController> controllers = Collections.emptySet();
+    private Set<MortgageController> controllers = Collections.emptySet();
 
     public void listen(int port) {
         final var javalin = Javalin.create(this::getJavalinConfig);
-        controllers.forEach(controllers -> setupController(javalin, controllers));
+        controllers.forEach(controller -> javalin.routes(controller.addRoutes(javalin)));
         javalin.start(port);
-    }
-
-    private void setupController(Javalin javalin, JavalinController controller) {
-        javalin.routes(() -> path(controller.getBaseUrl(), () -> controller.addRoutes(javalin)));
     }
 
     private JavalinConfig getJavalinConfig(JavalinConfig config) {
@@ -41,9 +36,9 @@ public class JavalinLauncher {
         final var apiInfo = new Info().version("0.1").description("Mortgage API");
         final var apiOptions = new OpenApiOptions(apiInfo)
                     .activateAnnotationScanningFor("com.mortgage.tool")
-                    .path("/swagger-docs")
-                    .swagger(new SwaggerOptions("/swagger-ui"))
-                    .reDoc(new ReDocOptions("/redoc"));
+                    .swagger(new SwaggerOptions("/"))
+                    .reDoc(new ReDocOptions("/docs"))
+                    .path("/swagger-docs");
         return new OpenApiPlugin(apiOptions);
     }
 }

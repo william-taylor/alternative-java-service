@@ -6,10 +6,9 @@ import com.mortgage.tool.javalin.JavalinController;
 
 public class MortgageModule extends AbstractModule {
     protected void configure() {
-        bind(MortgageRepository.class);
         bind(MortgageService.class);
 
-        Multibinder.newSetBinder(binder(), JavalinController.class)
+        Multibinder.newSetBinder(binder(), MortgageController.class)
                 .addBinding().to(MortgageController.class);
     }
 }
