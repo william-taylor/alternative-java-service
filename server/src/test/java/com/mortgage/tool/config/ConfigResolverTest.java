@@ -11,6 +11,6 @@ public class ConfigResolverTest {
     public void testResolveConfig() {
         final var resolver = new ConfigResolver();
         final var config = resolver.resolve();
-        assertThat(config.getPort(), is(8000));
+        assertThat(config.getPort(), is(5000));
     }
 }

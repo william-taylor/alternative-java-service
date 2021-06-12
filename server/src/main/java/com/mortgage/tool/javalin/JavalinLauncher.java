@@ -22,7 +22,7 @@ public class JavalinLauncher {
     private static final String API_DESCRIPTION = "Simple Mortgage API";
     private static final String API_PACKAGE = "com.mortgage.tool";
 
-    private static final String REDOCS_URL = "/redocs";
+    private static final String REDOCS_URL = "/";
     private static final String SWAGGER_URL = "/swagger-ui";
     private static final String SWAGGER_DOCS_URL = "/swagger-docs";
 
