@@ -1,4 +1,8 @@
 package com.mortgage.tool.config;
 
-public record Config (int port) {
+import lombok.Value;
+
+@Value
+public class Config {
+    private int port;
 }

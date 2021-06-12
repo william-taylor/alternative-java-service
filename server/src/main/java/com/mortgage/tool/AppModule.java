@@ -34,6 +34,6 @@ public class AppModule extends AbstractModule {
 
         final var config = resolver.resolve();
         log.info("Resolved configuration: {}", config);
-        launcher.listen(config.port());
+        launcher.listen(config.getPort());
      }
 }
