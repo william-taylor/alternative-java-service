@@ -17,8 +17,12 @@ import static io.javalin.apibuilder.ApiBuilder.post;
 public class MortgageController implements JavalinController {
     private static final String BASE_PATH = "/mortgage";
 
-    @Inject
     private MortgageService service;
+
+    @Inject
+    public MortgageController(MortgageService service) {
+        this.service = service;
+    }
 
     @Override
     public EndpointGroup addRoutes(Javalin app) {
@@ -28,9 +32,9 @@ public class MortgageController implements JavalinController {
     @OpenApi(
         method = HttpMethod.POST,
         path = "/mortgage",
-        summary = "Calculates interest for a mortgage",
+        summary = "Calculates mortgage payments in total and per month",
         operationId = "calculateInterest",
-        tags = "Mortgage",
+        tags = "Mortgage (RPC)",
         requestBody = @OpenApiRequestBody(content = @OpenApiContent(from = Mortgage.class)),
         responses = @OpenApiResponse(status = "200", content = @OpenApiContent(from = MortgageInterest.class))
     )

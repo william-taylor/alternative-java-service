@@ -6,6 +6,6 @@ import java.math.BigDecimal;
 
 @Value
 public class MortgageInterest {
-    private BigDecimal totalAmount;
-    private BigDecimal perMonthAmount;
+    private BigDecimal totalAmountPaid;
+    private BigDecimal amountPerMonth;
 }
