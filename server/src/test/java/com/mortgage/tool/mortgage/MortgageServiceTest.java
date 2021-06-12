@@ -1,17 +1,17 @@
 package com.mortgage.tool.mortgage;
 
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class MortgageServiceTest {
     private MortgageService mortgageService;
 
-    @BeforeEach
+    @BeforeAll
     public void setupTest() {
         mortgageService = new MortgageService();
     }

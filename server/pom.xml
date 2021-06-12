@@ -7,6 +7,7 @@
     <groupId>com.mortgage.tool</groupId>
     <artifactId>mortgage-tool</artifactId>
     <version>0.1</version>
+    <packaging>jar</packaging>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
