@@ -1,4 +1,7 @@
 language: java
+script:
+  - cd server
+  - mvn clean compile
 #deploy:
 #  provider: elasticbeanstalk
 #  access_key_id:
