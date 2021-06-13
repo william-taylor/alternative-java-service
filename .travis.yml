@@ -6,7 +6,7 @@ script:
 deploy:
   provider: elasticbeanstalk
   app: mortgage-tool
-  env: Mortgagetool-env-1
+  env: mortgage-tool-prod-env
   region: eu-west-2
   bucket_name: mortgage-tool-source
   zip_file: mortgage-tool.zip
