@@ -2,6 +2,7 @@ language: java
 script:
   - cd server
   - mvn clean compile
+  - zip mortgage-tool.zip -r src pom.xml Procfile Buildfile
 #deploy:
 #  provider: elasticbeanstalk
 #  access_key_id:
@@ -12,3 +13,4 @@ script:
 #  app: "mortgage-tool"
 #  env: "Mortgagetool-env-1"
 #  bucket_name: "mortgage-tool-source"
+#  zip_file: server/mortgage-tool.zip
