@@ -3,14 +3,15 @@ script:
   - cd server
   - mvn clean compile
   - zip mortgage-tool.zip -r src pom.xml Procfile Buildfile
-#deploy:
-#  provider: elasticbeanstalk
-#  access_key_id:
-#    secure: "Encrypted <access-key-id>="
-#  secret_access_key:
-#    secure: "Encypted <secret-access-key>="
-#  region: "eu-west-2"
-#  app: "mortgage-tool"
-#  env: "Mortgagetool-env-1"
-#  bucket_name: "mortgage-tool-source"
-#  zip_file: server/mortgage-tool.zip
+deploy:
+  provider: elasticbeanstalk
+  access_key_id:
+    secure: "Iw9xKHjJWkOWjurzrTF3lCFp3xUUyuOLiRGxVahpFC4EztqlK5RFhakFG4B5kziU5oGBv7X5WvrtXqSyezP7cAIOB9Zv2+wdXNc3uN9FJUPP9z0YCcmXefwCx7hgncCqEG+mopRSksHlyh+AWhMGo1Wh7vxzH/soa3eMoDGa1mCI6JKZamys/H6UUipBjWFXPhfWiLkwxCChWHbaRgrMC9b7+Ml4uNDPMl/YwdcRm+pKrdrW+Yk+VJ+sJnOUYrJcaD6PoXZPdgALltJLBuuZcV8oJXUNzRO1+0QQ5m1KaXrsZqAh26QBZzMNxfs7j31IMxa4gHibPFFKkBg8fIIO/4bJXMI56TKNoriIcM125/g4YDcIwsX7ZyejMOWYQG5lMtDI/A4+tGH2B8osYbN7c+uKRIaMxDwoO74cNk6/hg3NBHJ3bh9sRG78z5kEup9HBSlX0/gqgkluuzbeb0lBvcWIl4RAgBheRLqyQWBTUMQq/gSSB/+bAgnyIXqL6MLU5LbjAYS7NmGTxUW0GmqXjgkL4awsbyxwuKEEL+5pfCslED4a6ocF9TUJqZwiGaWtBCkDyK27o53M07CfsXfd3dgdZRUrSK6DH6G0RBTPLPU0uthjYTChmj76BgJwqkvRe+vz+XZN32WlJwdPpgawdrUxxb5zQfcmTXn3/jfib8Q="
+  secret_access_key:
+    secure: "MT1b8UWTBg1Cf63JaYSrH5Kdba0FTSCYnW7GDgDiQ7j8lMEals86BPeD/aLt8UeJUFK+mUHPOxPqHtDin2JD+3hwgQSHntxwcYZJ+VM+W3L7zHlGE2MI1chLpKEunRALE1rzNt2z4BClSlL+d95dz6InmvT3B4MKYzwyHf4PuRkvKff20LcIEIKFMf5au8z/jxeN9/a3kwZxs/4xo3CddeWHhSjxtYu72AoRuC7K6LtNksKON1ErD6y1q+/hBkx2KWFHX3y9BBwly1dIgjZDDzqbvAPunwZIDIMQu4r7iKIn+Lyyd+L/1ur0ppodGgSn5wbhT9dkTsPQA+gvuQ8HMxoR1BsGuEPZxwovtvhBD6sb1Il2/nmMIruKhrdUx/y4tuv3xASv08yopMKjgDr9m2kYxz+KO6eXiXCDjq/2tx2bnyGiu7sxFOdM0vjObfo7Dkl5sRDtX4TrD0+kPdCBAzwx2LUMvd6dlH1PXHfnh9GX1Q/wPUDcLGvuHBxVhqu8d/zKPMcmKmTNVdH1sGlVSRa2+D3T2tn00sQvuOL71/Z56NPJzbSsj0SGWZnBQmcXPWFsRvYzE4OPMbdzYA8cxMjoNxp6saKIsTC59pxj6M+jgtDen02LRKmzCj4YFXPBj88BiWd/ULloBWFEMi8qO1Kx8dEr7lu475fcc6oLdFM="
+  region: "eu-west-2"
+  app: "mortgage-tool"
+  env: "Mortgagetool-env-1"
+  bucket_name: "mortgage-tool-source"
+  zip_file: server/mortgage-tool.zip
+  skip_cleanup: true
