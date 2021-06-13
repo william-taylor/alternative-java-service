@@ -241,7 +241,7 @@ temp/
 .DS_*
 **/*.backup.*
 **/*.back.*
-
+client/build
 node_modules
 
 *.sublime*
