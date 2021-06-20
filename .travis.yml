@@ -1,6 +1,5 @@
 language: java
 script:
-- cd server
 - mvn clean compile
 - zip mortgage-tool.zip -r src pom.xml Procfile Buildfile
 deploy:
