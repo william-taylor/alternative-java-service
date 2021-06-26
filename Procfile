@@ -1,1 +1,0 @@
-web: java -cp target/mortgage-tool-0.1-jar-with-dependencies.jar com.mortgage.tool.AppModule

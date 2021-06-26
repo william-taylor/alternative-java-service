@@ -1,6 +1,14 @@
 language: java
 script:
 - mvn assembly:assembly -DdescriptorId=jar-with-dependencies -DskipTests
+after_success:
+  - docker --version
+  - pip install --user awscli
+  - export PATH=$PATH:$HOME/.local/bin
+  - eval $(aws ecr get-login --region eu-west-2)
+  - docker build -t mortgage-api .
+  - docker tag mortgage-api:latest public.ecr.aws/y4b5m7t6/mortgage-api:latest
+  - docker push public.ecr.aws/y4b5m7t6/mortgage-api:latest
 #deploy:
 #  provider: elasticbeanstalk
 #  app: mortgage-tool
