@@ -1,6 +1,6 @@
 language: java
 script:
-- mvn assembly:assembly -DdescriptorId=jar-with-dependencies -DskipTests
+  - mvn assembly:assembly -DdescriptorId=jar-with-dependencies -DskipTests
 after_success:
   - docker --version
   - pip install --user awscli
